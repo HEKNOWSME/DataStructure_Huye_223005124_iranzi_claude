@@ -124,7 +124,8 @@ print(f"Remaining tasks: {to_do_list}")
 # 
 friends1 = ['Alice', 'Bob', 'Charlie']
 friends2 = ['David', 'Charlie', 'Edward']
-
+combined_friends = list(set(friends1 + friends2))
+print(combined_friends)
 # Multi-Dimensional Lists:
 students = [
      ['alice', 12, "A"],
