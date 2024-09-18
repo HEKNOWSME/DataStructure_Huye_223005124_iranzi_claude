@@ -7,7 +7,15 @@ temperature_readings = array('f',[32.6, 35.5, 30.4, 25.7, 40.4, 30.6, 30.9])
 for day, temperature in enumerate(temperature_readings):
      print(f"day {day + 1} had temperature {temperature}")
 # question 2
+def average(daily_sales):
+     sum = 0
+     days_of_week = 7
+     for sale in daily_sales:
+          sum += sale
+     return math.floor(sum/ days_of_week)
 
+daily_sales = [500, 300, 200, 100, 600, 1800, 600]
+print(average(daily_sales))
 # question 3
 stock_prices = [100.5, 107.3, 109.2, 111.1, 109.4, 107.0, 106.9]
 print(min(stock_prices))
