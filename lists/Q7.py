@@ -1,8 +1,9 @@
-sales = [
-    [100, 150, 200, 250, 300, 350, 400], 
-    [120, 130, 140, 160, 180, 200, 220],  
-    [90, 110, 140, 170, 190, 210, 230],   
+expenses = [
+    [1000, 1200, 1100, 2500, 200, 100],
+    [300, 350, 320, 1000, 1200, 300],     
+    [200, 250, 220, 360, 400, 200]      
 ]
 
-for day, product_sales in enumerate(sales):
-    print(f"Sales for Product {day+1}: {product_sales}")
+for month, category in enumerate(expenses):
+    average = sum(category) / 6
+    print(f"Average expense for category {month+1}: {round(average)}")

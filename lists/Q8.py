@@ -1,12 +1,10 @@
-rgb_image = [
-       [0, 0, 255], # Red 
-       [0, 255, 0 ], # green
-       [0, 0, 255]   # blue
-       ] 
-def rgb_image_invert_colors(colors):
-       for color in colors:
-              color[0] = 255 -color[0]
-              color[1] = 255 -color[1]
-              color[2] = 255 -color[2]
-       return colors
-print(rgb_image_invert_colors(rgb_image))
+theater_seating = [
+       ['seat 1', 'seat 2', "seat 3", 'seat 4'], 
+       ['seat 5', 'seat 6', "reserved", 'seat 8'], 
+       ['seat 9', 'seat 10', "seat 11", 'seat 12'], 
+       ]
+reserved = 'reserved'
+for index, block in enumerate(theater_seating):
+       for place, seat in enumerate(block):
+              if seat == 'reserved':
+                     print(f"the seat {place + 1} in block {index + 1} is reserved")
