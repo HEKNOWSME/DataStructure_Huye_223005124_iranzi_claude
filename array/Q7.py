@@ -12,3 +12,14 @@ for i, product_sales in enumerate(shop):
        elif i == 2:
               i = "Beans"
        print(f"Sales for {i} over the week is {product_sales}")
+       
+# or find total weekly sales
+print('or')
+for i, product_sales in enumerate(shop):
+       if i ==0:
+              i = "Cassavas"
+       elif i == 1:
+              i = "Potatoes"
+       elif i == 2:
+              i = "Beans"
+       print(f"Sales for {i} over the week is {sum(product_sales)}")
