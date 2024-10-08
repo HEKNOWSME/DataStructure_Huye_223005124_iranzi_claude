@@ -19,8 +19,11 @@ class Stack:
                      raise IndexError('It is empty')
               self.stack.pop()
               print(self.stack)
+       def peek(self):
+              print(self.stack[len(self.stack) - 1])
 stack = Stack()
 stack.push(1)
 stack.push(2)
 stack.push(3)
 stack.pop()
+stack.peek()
