@@ -27,3 +27,20 @@ stack.push(2)
 stack.push(3)
 stack.pop()
 stack.peek()
+
+class Queue:
+       def __init__(self):
+              self.items = deque()
+       def enqueue(self,item):
+              self.items.append(item)
+              print(self.items)
+       def dequeue(self):
+              if not self.items:
+                     raise IndexError('Nothing to remove')
+              self.items.popleft()
+              print(self.items)
+queue = Queue()
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+queue.dequeue()
