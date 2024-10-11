@@ -74,8 +74,7 @@ class SportsEventManager:
          print(f"this ticket of the customer {cancelled_ticket.customerName} is cancelled")
       else:
          print("No ticket booked")
-         
-            
+                 
 sportsEventManager = SportsEventManager()
 def answer():
    while True:
@@ -106,6 +105,5 @@ def answer():
          sportsEventManager.undoTicket()
       else:  
          print("invalid choice")
-
 
 answer()
