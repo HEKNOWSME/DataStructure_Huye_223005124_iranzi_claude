@@ -14,8 +14,8 @@ class SportsEventManager:
       self.undoTicketPurchases = []
       self.eventAttendees = deque()
       self.listOfAvailableEvents = []
-      self.allEvents = [["EventId","|" , "eventName", "|", "availableSeats"]]
-      self.allTicketsPurchased = [["EventId","|" , "customerName"]]
+      self.allEvents = [["EventId","|" , "eventName", "|", "availableSeats", "|"]]
+      self.allTicketsPurchased = [["EventId","|" , "customerName", "|"]]
    def addEvent_push(self, eventId, eventName, availableSeats):
       event = Event(eventId, eventName, availableSeats)
       self.listOfAvailableEvents.append(event)
@@ -25,14 +25,15 @@ class SportsEventManager:
       eventDuplicate.append(event.eventName)
       eventDuplicate.append("|")
       eventDuplicate.append(event.availableSeats)
+      eventDuplicate.append("|")
       self.allEvents.append(eventDuplicate)
    
    def view_events(self):
       print("{:<10}".format("All Events purchased with customers"))
-      print("{:<10}".format('------------------------------------'))
+      print("{:<10}".format('----------------------------------------------'))
       for event in self.allEvents:
-         print("{:<10} {:<3} {:<10} {:<3} {:<10}".format(*event))
-   
+         print("{:<10} {:<3} {:<10} {:<3} {:<14} {:<3}".format(*event))
+      print("{:<10}".format('----------------------------------------------'))
    def purchase_ticket_push(self, eventId, customerName):
       for event in self.listOfAvailableEvents:   
          if event.eventId == eventId:
@@ -44,6 +45,7 @@ class SportsEventManager:
                eventDuplicate.append(eventId)
                eventDuplicate.append("|")
                eventDuplicate.append(customerName)
+               eventDuplicate.append("|")
                self.allTicketsPurchased.append(eventDuplicate)
                self.listOfAvailableEvents.append(ticket)
                print(f"the customer {customerName} booked this event with id {eventId}") 
@@ -58,9 +60,10 @@ class SportsEventManager:
          
    def view_allTicketsPurchased(self):
       print("{:<30}".format('All ticket purchased with customers'))
-      print("{:<30}".format('------------------------------------'))
+      print("{:<30}".format('-------------------------------------'))
       for ticket in self.allTicketsPurchased:
-         print("{:<10} {:<3} {:<20}".format(*ticket))
+         print("{:<10} {:<3} {:<20} {:<3}".format(*ticket))
+      print("{:<10}".format('-------------------------------------'))
          
    def peek_the_last_ticket(self):
       if self.eventAttendees:
@@ -85,6 +88,7 @@ class SportsEventManager:
          newTicket.append(undo.eventId)
          newTicket.append("|")
          newTicket.append(undo.customerName)
+         newTicket.append("|")
          self.allTicketsPurchased.append(newTicket)
          self.view_allTicketsPurchased()
       elif not len(self.allTicketsPurchased) == 1:
@@ -122,7 +126,6 @@ def manual():
    sportsEventManager.view_allTicketsPurchased()
    sportsEventManager.cancelling_ticket_pop()
    sportsEventManager.undoing_ticket_cancelled()
-
 manual()
 
 def answer(question):
@@ -133,7 +136,7 @@ def answer(question):
       else:
          print('Please Answer yes/y or no/n')
 def pushEvent(number):
-   while number < 3:
+   while number < 5:
       response = answer("do you want to add an event?")
       if(response == 'yes'):
          eventName = input("please add event eventName: ").strip().lower()
@@ -145,7 +148,7 @@ def pushEvent(number):
    return sportsEventManager.view_events()
 
 def bookTicket(number):
-   while number < 3:
+   while number < 5:
       response = answer("do you want to book sport ticket?")
       if (response == 'yes'):
          eventId = int(input("please add event eventId: ").strip())
