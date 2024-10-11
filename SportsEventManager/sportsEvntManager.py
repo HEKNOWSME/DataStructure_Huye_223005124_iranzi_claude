@@ -94,37 +94,36 @@ class SportsEventManager:
          print(f"MR/mrs {current_customer} Your ticket is not canceled")
             
 sportsEventManager = SportsEventManager()
-sportsEventManager.addEvent_push(1,"event 1", 23)
-sportsEventManager.addEvent_push(2,"event 2", 3)
-sportsEventManager.addEvent_push(3,"event 3", 2)
-sportsEventManager.addEvent_push(4,"event 4", 20)
-sportsEventManager.addEvent_push(5,"event 5", 23)
-sportsEventManager.addEvent_push(6,"event 6", 3)
-sportsEventManager.addEvent_push(7,"event 7", 2)
-sportsEventManager.addEvent_push(9,"event 9", 20)
-sportsEventManager.addEvent_push(10,"event 10", 20)
 
-sportsEventManager.purchase_ticket_push(1, "customer 1")
-sportsEventManager.purchase_ticket_push(3, "customer 3")
-sportsEventManager.purchase_ticket_push(3, "customer 3")
-sportsEventManager.purchase_ticket_push(4, "customer 4")
-sportsEventManager.purchase_ticket_push(5, "customer 5")
-sportsEventManager.purchase_ticket_push(6, "customer 6")
-sportsEventManager.purchase_ticket_push(7, "customer 7")
-sportsEventManager.purchase_ticket_push(8, "customer 8")
-sportsEventManager.purchase_ticket_push(9, "customer 9")
-sportsEventManager.purchase_ticket_push(10, "customer 10")
+def manual():
+   sportsEventManager.addEvent_push(1,"event 1", 23)
+   sportsEventManager.addEvent_push(2,"event 2", 3)
+   sportsEventManager.addEvent_push(3,"event 3", 2)
+   sportsEventManager.addEvent_push(4,"event 4", 20)
+   sportsEventManager.addEvent_push(5,"event 5", 23)
+   sportsEventManager.addEvent_push(6,"event 6", 3)
+   sportsEventManager.addEvent_push(7,"event 7", 2)
+   sportsEventManager.addEvent_push(9,"event 9", 20)
+   sportsEventManager.addEvent_push(10,"event 10", 20)
 
-sportsEventManager.peek_the_last_ticket()
-sportsEventManager.view_events()
-sportsEventManager.view_allTicketsPurchased()
-sportsEventManager.cancelling_ticket_pop()
-sportsEventManager.undoing_ticket_cancelled()
+   sportsEventManager.purchase_ticket_push(1, "customer 1")
+   sportsEventManager.purchase_ticket_push(3, "customer 3")
+   sportsEventManager.purchase_ticket_push(3, "customer 3")
+   sportsEventManager.purchase_ticket_push(4, "customer 4")
+   sportsEventManager.purchase_ticket_push(5, "customer 5")
+   sportsEventManager.purchase_ticket_push(6, "customer 6")
+   sportsEventManager.purchase_ticket_push(7, "customer 7")
+   sportsEventManager.purchase_ticket_push(8, "customer 8")
+   sportsEventManager.purchase_ticket_push(9, "customer 9")
+   sportsEventManager.purchase_ticket_push(10, "customer 10")
 
+   sportsEventManager.peek_the_last_ticket()
+   sportsEventManager.view_events()
+   sportsEventManager.view_allTicketsPurchased()
+   sportsEventManager.cancelling_ticket_pop()
+   sportsEventManager.undoing_ticket_cancelled()
 
-
-
-
+manual()
 
 def answer(question):
    while True:
