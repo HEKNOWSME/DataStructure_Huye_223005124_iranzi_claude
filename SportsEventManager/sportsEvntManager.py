@@ -3,6 +3,7 @@ class Ticket:
    def __init__(self, eventId, customerName) -> None:
       self.eventId =eventId
       self.customerName =customerName
+      self.price = 1000
 class Event:
    def __init__(self, Id, eventName, availableSeats) -> None:
       self.eventId = Id
@@ -86,6 +87,8 @@ class SportsEventManager:
          newTicket.append(undo.customerName)
          self.allTicketsPurchased.append(newTicket)
          self.view_allTicketsPurchased()
+      elif not len(self.allTicketsPurchased) == 1:
+         pass
       else:
          current_customer = self.allTicketsPurchased[1][2]
          print(f"MR/mrs {current_customer} Your ticket is not canceled")
