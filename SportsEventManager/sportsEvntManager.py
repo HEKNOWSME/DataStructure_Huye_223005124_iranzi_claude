@@ -44,9 +44,9 @@ class SportsEventManager:
             print('no event yet')
 
     def purchase_ticket_push(self, eventId, customerName):
-        
+
         for event in self.listOfAvailableEvents:
-            
+
             if event.eventId == eventId and not event.availableSeats == 0:
                 ticket = Ticket(eventId, customerName)
                 self.eventAttendees.append(ticket)
@@ -63,7 +63,7 @@ class SportsEventManager:
             print("no event with this id")
 
     def view_allTicketsPurchased(self):
-        
+
         if len(self.allTicketsPurchased) > 1:
             print("{:<30}".format('All ticket purchased with customers'))
             print("{:<30}".format('------------------------------------'))
@@ -73,7 +73,7 @@ class SportsEventManager:
             print("no ticket booked yet")
 
     def peek_the_last_ticket(self):
-        
+
         if self.eventAttendees:
             print(f"the latest customer booking is {
                   self.eventAttendees[-1].customerName} in the event {self.eventAttendees[0].eventId}")
@@ -81,12 +81,13 @@ class SportsEventManager:
             print("NO ticket booked")
 
     def undoTicket(self):
-        
+
         if self.eventAttendees and self.undoTicketPurchases:
             cancelled_ticket = self.eventAttendees.popleft()
             self.undoTicketPurchases.pop()
             self.allTicketsPurchased.pop(-1)
-            print(f"this ticket of the customer {cancelled_ticket.customerName} is cancelled")
+            print(f"this ticket of the customer {
+                  cancelled_ticket.customerName} is cancelled")
         else:
             print("No ticket booked")
 
@@ -95,7 +96,7 @@ sportsEventManager = SportsEventManager()
 
 
 def answer():
-    
+
     while True:
         print("\n1. Add event")
         print("2. view events")
@@ -105,16 +106,16 @@ def answer():
         print("6. cancel Your ticket")
         print("7. Exit")
         response = input(f"\nwhat is your choice: ").strip().lower()
-        
+
         if response == '1':
             eventID = int(input(f" write event Id: ").strip().lower())
             EventName = input(f"write event name : ").strip().lower()
             seats = int(input(f"write event seats: ").strip().lower())
             sportsEventManager.addEvent_push(eventID, EventName, seats)
-            
+
         elif response == "2":
             sportsEventManager.view_events()
-            
+
         elif response == "3":
             eventID = int(input(f" write event Id: ").strip().lower())
             customer = input(f"write customer name : ").strip().lower()
@@ -122,13 +123,13 @@ def answer():
 
         elif response == "4":
             sportsEventManager.view_allTicketsPurchased()
-            
+
         elif response == "5":
             sportsEventManager.peek_the_last_ticket()
-            
+
         elif response == "6":
             sportsEventManager.undoTicket()
-            
+
         elif response == "7":
             print("Thank you !")
             break
