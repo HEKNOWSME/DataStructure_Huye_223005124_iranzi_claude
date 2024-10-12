@@ -8,37 +8,31 @@ class Ticket:
         self.price = 1000
 
 
+allTicketsPurchased = [["EventId", "|", "customerName"]]
 class Event:
     def __init__(self, Id, eventName, availableSeats) -> None:
         self.eventId = Id
         self.eventName = eventName
         self.availableSeats = availableSeats
-
-
+        
+allEvents = [["EventId", "|", "eventName", "|", "availableSeats"]]
 class SportsEventManager:
     def __init__(self) -> None:
         self.undoTicketPurchases = []
         self.eventAttendees = deque()
         self.listOfAvailableEvents = []
-        self.allEvents = [["EventId", "|", "eventName", "|", "availableSeats"]]
-        self.allTicketsPurchased = [["EventId", "|", "customerName"]]
 
     def addEvent_push(self, eventId, eventName, availableSeats):
         event = Event(eventId, eventName, availableSeats)
-        eventDuplicate = []
-        eventDuplicate.append(event.eventId)
-        eventDuplicate.append("|")
-        eventDuplicate.append(event.eventName)
-        eventDuplicate.append("|")
-        eventDuplicate.append(event.availableSeats)
-        self.allEvents.append(eventDuplicate)
+        eventDuplicate = [event.eventId, "|", event.eventName,"|" ,event.availableSeats]
+        allEvents.append(eventDuplicate)
         self.listOfAvailableEvents.append(event)
 
     def view_events(self):
-        if len(self.allEvents) > 1:
+        if len(allEvents) > 1:
             print("{:<10}".format("All Events purchased with customers"))
             print("{:<10}".format('------------------------------------'))
-            for event in self.allEvents:
+            for event in allEvents:
                 print("{:<10} {:<3} {:<10} {:<3} {:<10}".format(*event))
         else:
             print('no event yet')
@@ -46,31 +40,31 @@ class SportsEventManager:
     def purchase_ticket_push(self, eventId, customerName):
         for event in self.listOfAvailableEvents:
             if event.eventId == eventId:
-                if event.availableSeats > 0:
+                if event.availableSeats:
                     ticket = Ticket(eventId, customerName)
                     self.eventAttendees.append(ticket)
-                    self.allTicketsPurchased.append([eventId, "|", customerName])
+                    allTicketsPurchased.append([eventId, "|", customerName])
                     self.undoTicketPurchases.append(ticket)
                     event.availableSeats -= 1
+                    print(event.availableSeats)
                     print(f"{customerName} has booked event {ticket.eventId} called {event.eventName} seats remain {event.availableSeats}")
                     break
-
                 else:
                     print("No seats remain")
                     break
-        for event in self.allEvents:
-            if eventId in event:
-                event[4] -= 1
-                break
         else:
             print("no event with this id")
+        for event in allEvents:
+            if eventId in event and event[4]:
+                event[4] -= 1
+                break
 
     def view_allTicketsPurchased(self):
 
-        if len(self.allTicketsPurchased) > 1:
+        if len(allTicketsPurchased) > 1:
             print("{:<30}".format('All ticket purchased with customers'))
             print("{:<30}".format('------------------------------------'))
-            for ticket in self.allTicketsPurchased:
+            for ticket in allTicketsPurchased:
                 print("{:<10} {:<3} {:<20}".format(*ticket))
         else:
             print("no ticket booked yet")
@@ -87,14 +81,14 @@ class SportsEventManager:
             cancelled_ticket = self.eventAttendees.popleft()
             eventId = cancelled_ticket.eventId
             self.undoTicketPurchases.pop()
-            self.allTicketsPurchased.pop(-1)
+            allTicketsPurchased.pop(1)
             for event in self.listOfAvailableEvents:
                 if event.eventId == eventId:
                     event.availableSeats += 1
                     break
-            for event in self.allEvents:
+            for event in allEvents:
                 if eventId in event:
-                    event[4] += 1         
+                    event[4] += 1          
             print(f"customer{cancelled_ticket.customerName} is cancelled")
         else:
             print("No ticket booked")
