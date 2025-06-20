@@ -1,4 +1,4 @@
-# C++ STUDENT FINAL PROJECT/223005124/IRANZICLAUDE/HUYE-CAMPUS 
+# C++ FINAL PROJECT/223005124/IRANZICLAUDE
 
 
 # Assignment 29: Student Grade Analyzer
@@ -8,9 +8,9 @@
 
 This project implements a Student Grade Analyzer system in C++ that demonstrates advanced object-oriented programming concepts, dynamic memory management, and statistical computation. The system allows users to manage student grades dynamically and compute various statistical metrics using polymorphism and virtual functions.
 
-## Task Description
+## Project Description
 
-**Assigned Task:** Create a Student Grade Analyzer system that:
+**Assigned Project:** Create a Student Grade Analyzer system that:
 
 - Manages student grades using dynamic memory allocation
 - Implements multiple statistical metrics using polymorphism
@@ -30,7 +30,7 @@ This project implements a Student Grade Analyzer system in C++ that demonstrates
 - **Memory Safety**: Proper allocation and deallocation of dynamic memory
 - **Pointer Arithmetic**: Demonstrates advanced pointer usage throughout the system
 
-## How the Task Was Completed
+## How the Project Was Completed
 
 ### 1. System Architecture
 
